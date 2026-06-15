@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b4sfi6r5h2rpv"]
+
+[ext_resource type="Script" uid="uid://dydyhbm3kbfm3" path="res://PauseMenuStat.gd" id="1_orv14"]
+
+[node name="PauseMenuStat" type="HBoxContainer" unique_id=1211479495]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+script = ExtResource("1_orv14")
+
+[node name="Title" type="Label" parent="." unique_id=312427655]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "00000000000000"
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="." unique_id=930272335]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000000000000"
+horizontal_alignment = 2
+vertical_alignment = 1

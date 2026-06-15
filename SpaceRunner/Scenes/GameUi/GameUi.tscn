@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://2gv3qb8l4xt0"]
+[gd_scene format=3 uid="uid://2gv3qb8l4xt0"]
 
 [ext_resource type="Script" uid="uid://cagtqt5rbvcr5" path="res://Scenes/GameUi/GameUi.gd" id="1_mb7aw"]
 [ext_resource type="LabelSettings" uid="uid://rxh1b0yjcvqa" path="res://Resources/TitleLabel.tres" id="2_anb74"]
+[ext_resource type="PackedScene" uid="uid://b4sfi6r5h2rpv" path="res://Scenes/UI/PauseMenuStat.tscn" id="4_5hvfd"]
 [ext_resource type="LabelSettings" uid="uid://cg7qig2uq4s3y" path="res://Resources/NormalLabel.tres" id="4_tt7lr"]
 
-[node name="GameUi" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_anolp"]
+font_size = 64
+
+[node name="GameUi" type="Control" unique_id=1347088956]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -14,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mb7aw")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=513076686]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -25,12 +29,12 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=1135330758]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "000000"
 
-[node name="GameOver" type="ColorRect" parent="."]
+[node name="GameOver" type="ColorRect" parent="." unique_id=1515766116]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -40,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2509804, 0.05882353, 0.5058824, 0.69411767)
 
-[node name="VB" type="VBoxContainer" parent="GameOver"]
+[node name="VB" type="VBoxContainer" parent="GameOver" unique_id=1022483232]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,27 +58,76 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="GameOver/VB"]
+[node name="Label" type="Label" parent="GameOver/VB" unique_id=1130855415]
 layout_mode = 2
 text = "Game Over Rover"
 label_settings = ExtResource("2_anb74")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameOverScored" type="Label" parent="GameOver/VB"]
+[node name="GameOverScored" type="Label" parent="GameOver/VB" unique_id=1778321147]
 layout_mode = 2
 text = "You Scored xxxxxx"
 label_settings = ExtResource("4_tt7lr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="GameOver/VB"]
+[node name="Control" type="Control" parent="GameOver/VB" unique_id=6555135]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="PressShoot" type="Label" parent="GameOver/VB"]
+[node name="PressShoot" type="Label" parent="GameOver/VB" unique_id=952964684]
 layout_mode = 2
 text = "Press Shoot"
 label_settings = ExtResource("4_tt7lr")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1317741234]
+visible = false
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VB" type="VBoxContainer" parent="PauseMenu" unique_id=46129752]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PauseMenu/VB" unique_id=1530995947]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Paused"
+label_settings = SubResource("LabelSettings_anolp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBStats" type="VBoxContainer" parent="PauseMenu/VB" unique_id=1133991860]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="AsteroidsStat" parent="PauseMenu/VB/VBStats" unique_id=1211479495 instance=ExtResource("4_5hvfd")]
+layout_mode = 2
+title = "Asteroids"
+
+[node name="ShipsStat" parent="PauseMenu/VB/VBStats" unique_id=286254249 instance=ExtResource("4_5hvfd")]
+layout_mode = 2
+title = "Ships"
+
+[node name="PowerUpStat" parent="PauseMenu/VB/VBStats" unique_id=1595486089 instance=ExtResource("4_5hvfd")]
+layout_mode = 2
+title = "Power Ups"
+
+[node name="GameTimeStat" parent="PauseMenu/VB/VBStats" unique_id=1783920943 instance=ExtResource("4_5hvfd")]
+layout_mode = 2
+title = "Game Time"
