@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dbx4srq242e5i" path="res://Scenes/PlayerRef/PlayerRef.tscn" id="7_jv6vg"]
 [ext_resource type="PackedScene" uid="uid://ciqv37gjkqfs5" path="res://Scenes/Hitbox/Hitbox.tscn" id="12_ul70j"]
 [ext_resource type="PackedScene" uid="uid://cprvomvd27sio" path="res://Scenes/Vfx/TieExplosionEffect/TieExplosionEffect.tscn" id="13_kbofb"]
+[ext_resource type="PackedScene" uid="uid://60mr3l2v1b15" path="res://Scenes/EnemyExplode/TieExplode.tscn" id="14_72i2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_815ps"]
 resource_name = "Material.001"
@@ -160,5 +161,6 @@ unit_size = 60.0
 collision_layer = 2
 shape_resource = SubResource("BoxShape3D_ul70j")
 explosion_scene = ExtResource("13_kbofb")
+shatter_scene = ExtResource("14_72i2r")
 
 [connection signal="died" from="Hitbox" to="." method="_on_hitbox_died"]

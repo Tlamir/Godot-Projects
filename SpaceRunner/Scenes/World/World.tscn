@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cipgqsj3htr1f" path="res://Scenes/TieFighter/TieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
 [ext_resource type="Script" uid="uid://dlqpj8xuridv4" path="res://Scenes/TieFighter/Behaviours/TurnShoot.gd" id="11_ng1ea"]
+[ext_resource type="PackedScene" uid="uid://if3ngmxpptp7" path="res://Scenes/Asteroid/Asteroid.tscn" id="12_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
 panorama = ExtResource("1_xf6vi")
@@ -110,5 +111,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
 transform = Transform3D(-0.99996215, -0.00064513227, 0.008681068, 0, 0.99725, 0.07411051, -0.008705006, 0.07410769, -0.9972123, 0.39384717, 3.8582659, -28.944962)
 stay_still = true
 enemy_behaviour = SubResource("Resource_ng1ea")
+
+[node name="Asteroid" parent="." unique_id=1572214971 instance=ExtResource("12_0d0er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.400001, 0, -62.800003)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
