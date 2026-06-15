@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_ad5f5")
+engage_distance = 65.0
 metadata/_custom_type_script = "uid://dlqpj8xuridv4"

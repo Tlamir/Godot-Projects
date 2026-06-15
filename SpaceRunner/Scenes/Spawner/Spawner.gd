@@ -49,8 +49,9 @@ func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
 			_TieLaserPool.activate_next_scene(p_tr)
 
 func add_with_transform(ob: Node3D, p_tr: Transform3D) -> void:
+	ob.transform = p_tr  # set BEFORE adding to tree
 	add_child(ob)
-	ob.global_transform = p_tr
+	ob.global_transform = p_tr  # correct to global after
 
 
 func add_with_position(ob: Node3D, p_pos: Vector3) -> void:
@@ -81,8 +82,8 @@ func spawn_enemies(scene: PackedScene,
 	
 	for i in randi_range(count_range.x, count_range.y):
 		var enemy: Node3D = scene.instantiate()
-		enemy.position = np - global_position
 		add_child(enemy)
+		enemy.global_position = np 
 		await get_tree().create_timer(wait_time, false, true).timeout
 		
 	timer.start()
@@ -90,9 +91,7 @@ func spawn_enemies(scene: PackedScene,
 func _on_tie_timer_timeout() -> void:
 		spawn_enemies(TIE_FIGHTER, 1.5, x_range, y_range, Vector2i(1,3), tie_timer) 
 
-
-
-
 func _on_asteroid_timer_timeout() -> void:
 		spawn_enemies(ASTEROID, 2.5, x_range, y_range, Vector2i(1,3), asteroid_timer) 
+		pass
 

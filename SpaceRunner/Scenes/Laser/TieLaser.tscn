@@ -7,7 +7,7 @@ size = Vector3(0.2738037, 0.2734375, 1.0848389)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k5g1"]
 shading_mode = 0
-albedo_color = Color(1.7534367, 0.13338931, 0.106517226, 1)
+albedo_color = Color(2.454227, 0.20639238, 0.16910705, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_iew3n"]
 material = SubResource("StandardMaterial3D_6k5g1")

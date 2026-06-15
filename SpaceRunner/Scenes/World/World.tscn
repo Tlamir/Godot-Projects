@@ -99,7 +99,4 @@ shape = SubResource("WorldBoundaryShape3D_ng1ea")
 [node name="PlayerCam" parent="." unique_id=2008918247 instance=ExtResource("9_p7pgw")]
 physics_interpolation_mode = 2
 
-[node name="Node3D" type="Node3D" parent="." unique_id=926793202]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.543674, -1.7778139, 0)
-
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]
