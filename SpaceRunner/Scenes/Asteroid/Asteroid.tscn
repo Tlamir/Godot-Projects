@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cvf0q3jtvwmge" path="res://Scenes/Asteroid/Asteroid.gd" id="1_bkogq"]
 [ext_resource type="PackedScene" uid="uid://ciqv37gjkqfs5" path="res://Scenes/Hitbox/Hitbox.tscn" id="1_i4hjy"]
-[ext_resource type="PackedScene" uid="uid://cprvomvd27sio" path="res://Scenes/Vfx/TieExplosionEffect/TieExplosionEffect.tscn" id="2_60yow"]
 [ext_resource type="PackedScene" uid="uid://iws2vud6j45k" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_ixrp8"]
 [ext_resource type="Material" uid="uid://duk68qe3o2tg6" path="res://Scenes/Asteroid/MaterialAsteroid.tres" id="2_w0t7l"]
 [ext_resource type="PackedScene" uid="uid://qnqwkgkcri77" path="res://Scenes/Asteroid/AsteroidExplode.tscn" id="3_bkogq"]
+[ext_resource type="PackedScene" uid="uid://wsg3asue5wih" path="res://Scenes/Vfx/AsteroidExplosion/AsteroidExplosion.tscn" id="4_w0t7l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deuw0"]
 
@@ -53,7 +53,7 @@ skeleton = NodePath("")
 [node name="Hitbox" parent="." unique_id=572742583 instance=ExtResource("1_i4hjy")]
 collision_layer = 2
 shape_resource = SubResource("BoxShape3D_i4hjy")
-explosion_scene = ExtResource("2_60yow")
+explosion_scene = ExtResource("4_w0t7l")
 shatter_scene = ExtResource("3_bkogq")
 
 [node name="LifeTimer" parent="." unique_id=1574380432 instance=ExtResource("2_ixrp8")]

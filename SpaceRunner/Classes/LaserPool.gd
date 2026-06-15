@@ -17,7 +17,7 @@ func add_new_scene() -> Laser:
 	if _name_prefix != "": ns.name = "%s_%d" % [_name_prefix,(_scenes_list.size()+1)]
 	_container.add_child(ns)
 	_scenes_list.append(ns)
-	print("add_new_scene ", ns.name, " now size: ", _scenes_list.size())
+	#print("add_new_scene ", ns.name, " now size: ", _scenes_list.size())
 	return ns
 
 func activate_next_scene(p_tr: Transform3D) -> void:
@@ -25,7 +25,7 @@ func activate_next_scene(p_tr: Transform3D) -> void:
 		var scene: Laser = _scenes_list[i]
 		if !scene.visible:
 			scene.start(p_tr)
-			print("re-using ", scene.name)
+			#print("re-using ", scene.name)
 			return
 	var ns: Laser = add_new_scene()
 	ns.start(p_tr)
