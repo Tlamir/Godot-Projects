@@ -9,3 +9,4 @@ debounce = 0.05
 sound_effect = ExtResource("2_vgdsy")
 
 [node name="Effects" type="AudioStreamPlayer3D" parent="." unique_id=1284032232]
+unit_size = 45.0

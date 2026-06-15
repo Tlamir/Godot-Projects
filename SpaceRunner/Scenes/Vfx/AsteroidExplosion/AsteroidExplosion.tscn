@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://wsg3asue5wih"]
+
+[ext_resource type="Shader" uid="uid://sdp3nyd0pjk6" path="res://Scenes/Vfx/AsteroidExplosion/AsteroidExplosionRingShader.tres" id="1_htfyo"]
+[ext_resource type="ArrayMesh" uid="uid://c0jp10u2sn8fd" path="res://Resources/RingMesh.tres" id="2_aucf7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n373q"]
+render_priority = 0
+shader = ExtResource("1_htfyo")
+
+[sub_resource type="Curve" id="Curve_htfyo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.28292683, 0), 0.0, 0.0, 0, 0, Vector2(0.34634146, 1), 0.0, 0.0, 0, 0, Vector2(0.6878049, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_aucf7"]
+curve = SubResource("Curve_htfyo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3gumt"]
+gravity = Vector3(0, 0, 0)
+color = Color(2.8655684, 2.2835174, 0.5373638, 1)
+alpha_curve = SubResource("CurveTexture_aucf7")
+
+[node name="AsteroidExplosion" type="Node3D" unique_id=1636165497]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1752733694]
+material_override = SubResource("ShaderMaterial_n373q")
+amount = 1
+lifetime = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_3gumt")
+draw_pass_1 = ExtResource("2_aucf7")
