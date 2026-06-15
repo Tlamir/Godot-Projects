@@ -8,10 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5s5dito4uyp1" path="res://Scenes/Spawner/Spawner.tscn" id="8_kjd5s"]
 [ext_resource type="PackedScene" uid="uid://b6ciqxekh3jeq" path="res://Scenes/Vfx/ShadedWall/ShadedWall.tscn" id="8_p7pgw"]
 [ext_resource type="PackedScene" uid="uid://gwgyxcty2ubc" path="res://Scenes/PlayerCam.tscn" id="9_p7pgw"]
-[ext_resource type="PackedScene" uid="uid://cipgqsj3htr1f" path="res://Scenes/TieFighter/TieFighter.tscn" id="10_kuxid"]
 [ext_resource type="PackedScene" uid="uid://2gv3qb8l4xt0" path="res://Scenes/GameUi/GameUi.tscn" id="11_0d0er"]
-[ext_resource type="Script" uid="uid://dlqpj8xuridv4" path="res://Scenes/TieFighter/Behaviours/TurnShoot.gd" id="11_ng1ea"]
-[ext_resource type="PackedScene" uid="uid://if3ngmxpptp7" path="res://Scenes/Asteroid/Asteroid.tscn" id="12_0d0er"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j0p05"]
 panorama = ExtResource("1_xf6vi")
@@ -39,11 +36,6 @@ resource_local_to_scene = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ng1ea"]
 
-[sub_resource type="Resource" id="Resource_ng1ea"]
-script = ExtResource("11_ng1ea")
-engage_distance = 60.0
-metadata/_custom_type_script = "uid://dlqpj8xuridv4"
-
 [node name="World" type="Node" unique_id=392109840]
 script = ExtResource("1_87yka")
 
@@ -59,6 +51,7 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Spawner" parent="." unique_id=306557163 instance=ExtResource("8_kjd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128.4)
 
 [node name="GameUi" parent="." unique_id=1840153794 instance=ExtResource("11_0d0er")]
 
@@ -71,27 +64,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3888245, 4.7000003, 0)
 [node name="Walls" type="Node3D" parent="." unique_id=1225474186]
 
 [node name="ShadedWallRight" parent="Walls" unique_id=411413712 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, 25, -0.76673126, -7.1720004)
+transform = Transform3D(-2.1855696e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855696e-07, 22.310423, 6.141701, -9.772001)
 
 [node name="ShadedWallLeft" parent="Walls" unique_id=1236439686 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -32.76504, -0.76673126, -13.771997)
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -33.0733, 6.533269, -9.071997)
 
 [node name="ShadedWallTop" parent="Walls" unique_id=179855610 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, 23.937292, 7.902092)
+transform = Transform3D(-3.4489827e-07, 5.5755424, -0.100817926, 4.418635e-09, -0.07143085, -7.869354, -7.891, -2.437347e-07, 1.5037095e-14, -5.801951, 31.590666, 5.102092)
 is_y = true
 
 [node name="ShadedWallBottom" parent="Walls" unique_id=1475418851 instance=ExtResource("8_p7pgw")]
-transform = Transform3D(-3.496911e-07, 11.52, -3.496911e-07, 0, -5.035552e-07, -8, -8, -5.035552e-07, 1.5285484e-14, -5.7774973, -12.862708, 5.102092)
+transform = Transform3D(-3.496911e-07, 5.5110183, -3.496911e-07, 0, -2.4089425e-07, -8, -8, -2.4089425e-07, 1.5285484e-14, -5.7774973, -18.862709, 5.044695)
 is_y = true
 
 [node name="WorldCollider" type="StaticBody3D" parent="Walls" unique_id=1288994401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.489732, 0)
 
 [node name="CollisionShapeBottom" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=1075915371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.711772, 0)
 shape = SubResource("WorldBoundaryShape3D_kjd5s")
 
 [node name="CollisionShapeTop" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=2136679369]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 18.488228, 0)
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 33.588226, 0)
 shape = SubResource("WorldBoundaryShape3D_p7pgw")
 
 [node name="CollisionShapeLeft" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=491620542]
@@ -105,15 +99,7 @@ shape = SubResource("WorldBoundaryShape3D_ng1ea")
 [node name="PlayerCam" parent="." unique_id=2008918247 instance=ExtResource("9_p7pgw")]
 physics_interpolation_mode = 2
 
-[node name="Node3D" type="Node3D" parent="." unique_id=362534411]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.88091, -5.5381536)
-
-[node name="TieFighter" parent="." unique_id=34549500 instance=ExtResource("10_kuxid")]
-transform = Transform3D(-0.99996215, -0.00064513227, 0.008681068, 0, 0.99725, 0.07411051, -0.008705006, 0.07410769, -0.9972123, 14.770099, 13.552964, -181.12872)
-stay_still = true
-enemy_behaviour = SubResource("Resource_ng1ea")
-
-[node name="Asteroid" parent="." unique_id=1572214971 instance=ExtResource("12_0d0er")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.400001, 0, -62.800003)
+[node name="Node3D" type="Node3D" parent="." unique_id=926793202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.543674, -1.7778139, 0)
 
 [connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

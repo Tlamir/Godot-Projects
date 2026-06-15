@@ -4,8 +4,8 @@ extends Node3D
 class_name Spawner
 
 
-@export var x_range: Vector2 = Vector2(-20, 20)
-@export var y_range: Vector2 = Vector2(-20, 20)
+@export var x_range: Vector2 = Vector2(-19, 15)
+@export var y_range: Vector2 = Vector2(-18, 18)
 @export var enabled: bool = true
 
 @onready var tie_timer: Timer = $TieTimer
@@ -18,6 +18,10 @@ var _TieLaserPool: LaserPool
 const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
 const PLAYER_LASER = preload("res://Scenes/Laser/PlayerLaser.tscn")
 const TIE_LASER = preload("res://Scenes/Laser/TieLaser.tscn")
+
+const TIE_FIGHTER = preload("res://Scenes/TieFighter/TieFighter.tscn")
+const ASTEROID = preload("res://Scenes/Asteroid/Asteroid.tscn")
+
 
 enum SceneNames { ImpactFlash }
 enum LaserTypes { PlayerLaser , TieLaser }
@@ -33,6 +37,7 @@ func _ready() -> void:
 	SignalHub.on_create_one_off.connect(on_create_one_off)
 	SignalHub.on_create_laser.connect(on_create_laser)
 	SignalHub.on_create_packed_scene.connect(on_create_packed_scene)
+	
 
 func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
 	match  laser_type:
@@ -62,11 +67,32 @@ func on_create_one_off(p_pos: Vector3, scene_name: Spawner.SceneNames) -> void:
 	var ns = SCENES_DICT[scene_name].instantiate()
 	call_deferred("add_with_position",ns,p_pos)
 		
-
+func spawn_enemies(scene: PackedScene, 
+				wait_time: float,  
+				spawn_range_x: Vector2, 
+				spawn_range_y: Vector2, 
+				count_range: Vector2i, 
+				timer: Timer) -> void:
+	if !enabled: return
+	
+	var rand_x: float = randf_range(spawn_range_x.x, spawn_range_x.y)
+	var rand_y: float = randf_range(spawn_range_y.x, spawn_range_y.y)
+	var np: Vector3 = Vector3(rand_x, rand_y, global_position.z)
+	
+	for i in randi_range(count_range.x, count_range.y):
+		var enemy: Node3D = scene.instantiate()
+		enemy.position = np - global_position
+		add_child(enemy)
+		await get_tree().create_timer(wait_time, false, true).timeout
+		
+	timer.start()
 
 func _on_tie_timer_timeout() -> void:
-	pass
+		spawn_enemies(TIE_FIGHTER, 1.5, x_range, y_range, Vector2i(1,3), tie_timer) 
+
+
 
 
 func _on_asteroid_timer_timeout() -> void:
-	pass
+		spawn_enemies(ASTEROID, 2.5, x_range, y_range, Vector2i(1,3), asteroid_timer) 
+

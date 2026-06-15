@@ -3,7 +3,6 @@ extends Node
 const IMPACT_FLASH = preload("res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn")
 
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
-@onready var node_3d: Node3D = $Node3D
 
 @export var sky_rotation_speed: float = -0.008
 @export var sky_rotation_direction: Vector3 = Vector3.UP:
