@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://qnqwkgkcri77"]
 
 [ext_resource type="Script" uid="uid://dj10hbjkhcahr" path="res://Scenes/EnemyExplode/EnemyExplode.gd" id="1_8vtqa"]
+[ext_resource type="Material" uid="uid://duk68qe3o2tg6" path="res://Scenes/Asteroid/MaterialAsteroid.tres" id="2_30uel"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl6u5"]
 
@@ -720,6 +721,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell" type="MeshInstance3D" parent="Icosphere_cell_RigidBody" unique_id=973367718]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_c4dqd")
 skeleton = NodePath("")
 
@@ -733,6 +735,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_001" type="MeshInstance3D" parent="Icosphere_cell_001_RigidBody" unique_id=656323144]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_vket0")
 skeleton = NodePath("")
 
@@ -746,6 +749,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_002" type="MeshInstance3D" parent="Icosphere_cell_002_RigidBody" unique_id=1562732837]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_5q7vn")
 skeleton = NodePath("")
 
@@ -759,6 +763,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_003" type="MeshInstance3D" parent="Icosphere_cell_003_RigidBody" unique_id=1303894828]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_f1jnp")
 skeleton = NodePath("")
 
@@ -772,6 +777,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_004" type="MeshInstance3D" parent="Icosphere_cell_004_RigidBody" unique_id=2077648905]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_5o74m")
 skeleton = NodePath("")
 
@@ -785,6 +791,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_005" type="MeshInstance3D" parent="Icosphere_cell_005_RigidBody" unique_id=516006207]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_n6xsg")
 skeleton = NodePath("")
 
@@ -798,6 +805,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_006" type="MeshInstance3D" parent="Icosphere_cell_006_RigidBody" unique_id=954848235]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_af5qt")
 skeleton = NodePath("")
 
@@ -811,6 +819,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_007" type="MeshInstance3D" parent="Icosphere_cell_007_RigidBody" unique_id=1817151669]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_2lvvb")
 skeleton = NodePath("")
 
@@ -824,6 +833,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_008" type="MeshInstance3D" parent="Icosphere_cell_008_RigidBody" unique_id=1561683144]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_ael0d")
 skeleton = NodePath("")
 
@@ -837,6 +847,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_009" type="MeshInstance3D" parent="Icosphere_cell_009_RigidBody" unique_id=1905052278]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_qrbf3")
 skeleton = NodePath("")
 
@@ -850,6 +861,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_010" type="MeshInstance3D" parent="Icosphere_cell_010_RigidBody" unique_id=446188719]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_yuqrv")
 skeleton = NodePath("")
 
@@ -863,6 +875,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_011" type="MeshInstance3D" parent="Icosphere_cell_011_RigidBody" unique_id=657033319]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_m5w2o")
 skeleton = NodePath("")
 
@@ -876,6 +889,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_012" type="MeshInstance3D" parent="Icosphere_cell_012_RigidBody" unique_id=454263757]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_t0kug")
 skeleton = NodePath("")
 
@@ -889,6 +903,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_013" type="MeshInstance3D" parent="Icosphere_cell_013_RigidBody" unique_id=166593952]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_v45d3")
 skeleton = NodePath("")
 
@@ -902,6 +917,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_014" type="MeshInstance3D" parent="Icosphere_cell_014_RigidBody" unique_id=641442694]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_typmq")
 skeleton = NodePath("")
 
@@ -915,6 +931,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_015" type="MeshInstance3D" parent="Icosphere_cell_015_RigidBody" unique_id=2110062673]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_1kpsc")
 skeleton = NodePath("")
 
@@ -928,6 +945,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_016" type="MeshInstance3D" parent="Icosphere_cell_016_RigidBody" unique_id=254143374]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_lxekv")
 skeleton = NodePath("")
 
@@ -941,6 +959,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_017" type="MeshInstance3D" parent="Icosphere_cell_017_RigidBody" unique_id=1602925877]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_gd33f")
 skeleton = NodePath("")
 
@@ -954,6 +973,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_018" type="MeshInstance3D" parent="Icosphere_cell_018_RigidBody" unique_id=310387926]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_0y2wp")
 skeleton = NodePath("")
 
@@ -967,6 +987,7 @@ collision_mask = 0
 gravity_scale = 0.0
 
 [node name="Icosphere_cell_019" type="MeshInstance3D" parent="Icosphere_cell_019_RigidBody" unique_id=1994879485]
+material_override = ExtResource("2_30uel")
 mesh = SubResource("ArrayMesh_8xvlc")
 skeleton = NodePath("")
 

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqv37gjkqfs5" path="res://Scenes/Hitbox/Hitbox.tscn" id="1_i4hjy"]
 [ext_resource type="PackedScene" uid="uid://cprvomvd27sio" path="res://Scenes/Vfx/TieExplosionEffect/TieExplosionEffect.tscn" id="2_60yow"]
 [ext_resource type="PackedScene" uid="uid://iws2vud6j45k" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="2_ixrp8"]
+[ext_resource type="Material" uid="uid://duk68qe3o2tg6" path="res://Scenes/Asteroid/MaterialAsteroid.tres" id="2_w0t7l"]
 [ext_resource type="PackedScene" uid="uid://qnqwkgkcri77" path="res://Scenes/Asteroid/AsteroidExplode.tscn" id="3_bkogq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deuw0"]
@@ -45,6 +46,7 @@ size = Vector3(6.87, 8.205, 6.765)
 script = ExtResource("1_bkogq")
 
 [node name="MeshAsteroid" type="MeshInstance3D" parent="." unique_id=1433186903]
+material_override = ExtResource("2_w0t7l")
 mesh = SubResource("ArrayMesh_xj728")
 skeleton = NodePath("")
 
