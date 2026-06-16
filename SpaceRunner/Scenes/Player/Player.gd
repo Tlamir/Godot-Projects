@@ -6,6 +6,8 @@ class_name Player
 
 const GROUP_PLAYER: String = "player"
 
+static var game_time: float = 0
+
 
 @export var fly_speed: float = 30.0
 @export var roll_speed: float = 25.0
@@ -30,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
+	game_time+=delta
 
 
 func update_ship_rotation(roll_input: float, pitch_input: float, delta: float) -> void:

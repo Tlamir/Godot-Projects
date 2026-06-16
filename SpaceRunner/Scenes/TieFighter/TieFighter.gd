@@ -17,11 +17,14 @@ const TIE_JUST_FLY = preload("res://Resources/TieJustFly.tres")
 const TIE_LOSS_OF_CONTROL = preload("res://Resources/TieLossOfControl.tres")
 const TIE_TURN_SHOOT = preload("res://Resources/TieTurnShoot.tres")
 
+static var tie_spawned: int = 0
+static var tie_destroyed: int = 0
 
 func _ready() -> void:
 	choose_random_behaviour()
 	#enemy_behaviour.setup(self)
 	call_deferred("_face_player")
+	tie_spawned+=1
 
 func _physics_process(_delta: float) -> void:
 	if !stay_still and enemy_behaviour: 
@@ -39,6 +42,7 @@ func shoot_burst():
 		await get_tree().create_timer(burst_delay).timeout
 
 func _on_hitbox_died() -> void:
+	tie_destroyed+=1
 	queue_free()
 	
 func choose_random_behaviour() -> void:	

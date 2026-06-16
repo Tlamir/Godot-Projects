@@ -4,6 +4,10 @@ class_name asteroid
 
 const EXPLODE_Z: float = -15.0
 
+static var asteroid_spawned: int = 0
+static var asteroid_destroyed: int = 0
+
+
 @export var spin_speed: float = 10
 @export var speed: float = -10
 
@@ -11,6 +15,9 @@ const EXPLODE_Z: float = -15.0
 @onready var hitbox: HitBox = $Hitbox
 @onready var mesh_asteroid: MeshInstance3D = $MeshAsteroid
 
+
+func _ready() -> void:
+	asteroid_spawned+=1
 
 func _physics_process(delta: float) -> void:	
 	if global_position.z > EXPLODE_Z:
@@ -23,4 +30,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_hitbox_died() -> void:
+	asteroid_destroyed+=1
 	queue_free()

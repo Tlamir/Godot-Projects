@@ -18,6 +18,7 @@ height = 1.5
 [node name="PlayerLaser" unique_id=627085430 instance=ExtResource("1_s1xwe")]
 collision_layer = 1
 collision_mask = 2
+damage = 30
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=2114910760]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

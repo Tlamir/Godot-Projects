@@ -81,19 +81,19 @@ is_y = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.489732, 0)
 
 [node name="CollisionShapeBottom" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=1075915371]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.711772, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.711772, 0)
 shape = SubResource("WorldBoundaryShape3D_kjd5s")
 
 [node name="CollisionShapeTop" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=2136679369]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 33.588226, 0)
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 37.888226, 0)
 shape = SubResource("WorldBoundaryShape3D_p7pgw")
 
 [node name="CollisionShapeLeft" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=491620542]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 20.400002, 7, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 21.100002, 7, 0)
 shape = SubResource("WorldBoundaryShape3D_kuxid")
 
 [node name="CollisionShapeRight" type="CollisionShape3D" parent="Walls/WorldCollider" unique_id=1511386524]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -24.500004, 4.4, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -32.100002, 4.4, 0)
 shape = SubResource("WorldBoundaryShape3D_ng1ea")
 
 [node name="PlayerCam" parent="." unique_id=2008918247 instance=ExtResource("9_p7pgw")]

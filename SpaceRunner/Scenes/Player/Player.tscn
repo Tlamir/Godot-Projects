@@ -63,6 +63,7 @@ shape = SubResource("BoxShape3D_h54ih")
 [node name="Pivot" type="Node3D" parent="." unique_id=1354092252]
 
 [node name="Gun" parent="Pivot" unique_id=1498391528 node_paths=PackedStringArray("muzzles") instance=ExtResource("4_ude3g")]
+debounce = 0.2
 muzzles = [NodePath("Muzzle1"), NodePath("Muzzle2")]
 
 [node name="Muzzle1" type="Node3D" parent="Pivot/Gun" unique_id=1996132828]
