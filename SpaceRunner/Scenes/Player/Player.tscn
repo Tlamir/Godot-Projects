@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3la78i816037" path="res://Scenes/Vfx/Thrust/Thrust.tscn" id="3_h54ih"]
 [ext_resource type="PackedScene" uid="uid://dydsolferl8vj" path="res://Scenes/Gun/Gun.tscn" id="4_ude3g"]
 [ext_resource type="PackedScene" uid="uid://bu7uljw2fjku4" path="res://Scenes/Vfx/ImpactFlash/ImpactFlash.tscn" id="5_jmcll"]
+[ext_resource type="PackedScene" uid="uid://xpirf5mutxag" path="res://Scenes/UI/HealthBar.tscn" id="6_4wape"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h54ih"]
 size = Vector3(4.8305054, 0.82714844, 4.4710846)
@@ -109,5 +110,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1015661, 0.62915635, 0)
 emitting = false
 one_off = false
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=828033746]
+
+[node name="HealthBar" parent="UI" unique_id=1356810631 instance=ExtResource("6_4wape")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 392.0
+offset_bottom = 72.0
+
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="died" from="UI/HealthBar" to="." method="_on_health_bar_died"]

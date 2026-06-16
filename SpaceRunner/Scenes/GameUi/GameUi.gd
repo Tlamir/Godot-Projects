@@ -15,16 +15,23 @@ class_name GameUi
 @onready var ships_stat: PauseMenuStat = $PauseMenu/VB/VBStats/ShipsStat
 @onready var game_time_stat: PauseMenuStat = $PauseMenu/VB/VBStats/GameTimeStat
 
+
 func _ready() -> void:
-	get_tree().paused = false	
-	
+	asteroid.asteroid_destroyed=0
+	asteroid.asteroid_spawned=0
+	TieFighter.tie_destroyed=0
+	TieFighter.tie_spawned=0
+	get_tree().paused = false
+	SignalHub.on_player_died.connect(player_died)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("pause"):
+	if !game_over.visible and event.is_action_pressed("pause"):
 		pause_menu.visible=!pause_menu.visible
 		get_tree().paused = pause_menu.visible
 		if pause_menu.visible : update_stats()
+	elif game_over.visible and event.is_action_pressed("shoot"):
+		get_tree().reload_current_scene()
 
 func update_stats():
 	asteroids_stat.set_value_label(
@@ -42,3 +49,7 @@ func update_stats():
 	)
 	
 	game_time_stat.set_value_label(".%2fs" % Player.game_time)
+	
+func player_died():
+	game_over.show()
+	get_tree().paused=true

@@ -5,6 +5,7 @@ class_name Player
 
 
 const GROUP_PLAYER: String = "player"
+@export var  debrie_dmg: float = 10
 
 static var game_time: float = 0
 
@@ -19,6 +20,11 @@ static var game_time: float = 0
 @onready var pivot: Node3D = $Pivot
 @onready var gun: Gun = $Pivot/Gun
 @onready var impact_flash: ImpactFlash = $ImpactFlash
+@onready var health_bar: HealthBar = $UI/HealthBar
+
+func _enter_tree() -> void:
+	game_time =0
+	add_to_group(GROUP_PLAYER)
 
 func _physics_process(delta: float) -> void:
 	
@@ -42,18 +48,24 @@ func update_ship_rotation(roll_input: float, pitch_input: float, delta: float) -
 	pivot.rotation_degrees.x = lerp(pivot.rotation_degrees.x, target_pitch, delta * tilt_speed)
 	pivot.rotation_degrees.z = lerp(pivot.rotation_degrees.z, target_roll, delta * roll_speed)
 	
-	
 func shoot() -> void:
 	gun.shoot()
 
+func debrie_hit():
+	#impact_flash.bang()
+	health_bar.take_damage(debrie_dmg)
+		
 
+func _on_hit_area_body_entered(_body: Node3D) -> void:
+	debrie_hit()
+	
 
-func _on_hit_area_body_entered(body: Node3D) -> void:
-	impact_flash.bang()
+func _on_hit_area_area_entered(_area: Area3D) -> void:
+	if _area is Laser:
+		health_bar.take_damage(_area.get_damage())
+	elif _area is HitBox:
+		debrie_hit()
 
-
-func _on_hit_area_area_entered(area: Area3D) -> void:
-	if area is Laser:
-		pass
-	elif area is HitBox:
-		impact_flash.bang()
+func _on_health_bar_died() -> void:
+	set_physics_process(false)
+	SignalHub.emit_player_died()

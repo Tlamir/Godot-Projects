@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xpirf5mutxag"]
+
+[ext_resource type="Texture2D" uid="uid://c2sq3ke08xnv7" path="res://Assets/Textures/Ui/progress_under.png" id="1_r0cg3"]
+[ext_resource type="Texture2D" uid="uid://cfjo460k2mky" path="res://Assets/Textures/Ui/progress_over.png" id="2_30gtx"]
+[ext_resource type="Script" uid="uid://dv2sqxuqiuhws" path="res://Scenes/UI/HealthBar.gd" id="3_30gtx"]
+
+[node name="HealthBar" type="TextureProgressBar" unique_id=1356810631]
+custom_minimum_size = Vector2(360, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+value = 75.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_r0cg3")
+texture_progress = ExtResource("2_30gtx")
+script = ExtResource("3_30gtx")

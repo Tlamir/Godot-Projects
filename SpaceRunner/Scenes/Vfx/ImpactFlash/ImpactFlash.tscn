@@ -29,8 +29,8 @@ material = SubResource("StandardMaterial3D_so3o7")
 size = Vector2(2, 2)
 
 [node name="ImpactFlash" type="GPUParticles3D" unique_id=1105616688]
-amount = 4
-lifetime = 4.0
+amount = 1
+lifetime = 0.4
 explosiveness = 0.8
 process_material = SubResource("ParticleProcessMaterial_u4ybo")
 draw_pass_1 = SubResource("QuadMesh_jqok2")
