@@ -6,6 +6,10 @@ signal on_create_packed_scene(p_tr: Transform3D, ps: PackedScene)
 signal on_player_died()
 signal on_create_power_up(p_pos: Vector3)
 signal on_player_hit()
+signal on_score_changed
+
+func emit_score_changed():
+	on_score_changed.emit()
 
 func emit_player_hit():
 	on_player_hit.emit()

@@ -7,6 +7,7 @@ signal  died
 
 @export var shape_resource: Shape3D
 @export var start_health: int = 100
+@export var points_scored: int =10
 @export var explosion_scene: PackedScene 
 @export var shatter_scene: PackedScene
 @export var create_power_up: bool = false
@@ -32,6 +33,7 @@ func disable() -> void:
 	SpaceUtils.toggle_area3d(self,false)
 	
 func die():
+	GameUi.score+= points_scored
 	_dead=true
 	died.emit()
 	disable()

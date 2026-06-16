@@ -19,7 +19,7 @@ var powerup_type: PowerUpType = PowerUpType.Health:
 	get: return powerup_type
 
 func _ready() -> void:
-	if randf() > 0.5: powerup_type = PowerUpType.Shield
+	if randf() > 0.3: powerup_type = PowerUpType.Shield
 	power_up_mesh.material_override = PowerUpMaterial[powerup_type]
 	
 

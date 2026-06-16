@@ -3,6 +3,11 @@ extends Control
 
 class_name GameUi
 
+static var score: int =0:
+	set(v):
+		score = v
+		score = max(v,0)
+		SignalHub.emit_score_changed()
 
 @onready var game_over: ColorRect = $GameOver
 @onready var label: Label = $GameOver/VB/Label
@@ -21,8 +26,10 @@ func _ready() -> void:
 	asteroid.asteroid_spawned=0
 	TieFighter.tie_destroyed=0
 	TieFighter.tie_spawned=0
+	score = 0
 	get_tree().paused = false
 	SignalHub.on_player_died.connect(player_died)
+	SignalHub.on_score_changed.connect(on_score_changed)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	
@@ -51,5 +58,9 @@ func update_stats():
 	game_time_stat.set_value_label(".%2fs" % Player.game_time)
 	
 func player_died():
+	game_over_scored.text = "You Score %d points! " %score
 	game_over.show()
 	get_tree().paused=true
+	
+func on_score_changed():
+	score_label.text = "%6d" % score
