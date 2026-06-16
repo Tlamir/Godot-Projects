@@ -5,7 +5,7 @@ class_name Spawner
 
 
 @export var x_range: Vector2 = Vector2(-19, 15)
-@export var y_range: Vector2 = Vector2(-18, 18)
+@export var y_range: Vector2 = Vector2(-16, 18)
 @export var enabled: bool = true
 
 @onready var tie_timer: Timer = $TieTimer
@@ -21,6 +21,9 @@ const TIE_LASER = preload("res://Scenes/Laser/TieLaser.tscn")
 
 const TIE_FIGHTER = preload("res://Scenes/TieFighter/TieFighter.tscn")
 const ASTEROID = preload("res://Scenes/Asteroid/Asteroid.tscn")
+const POWER_UP = preload("res://Scenes/PowerUp/PowerUp.tscn")
+
+
 
 
 enum SceneNames { ImpactFlash }
@@ -30,13 +33,13 @@ const SCENES_DICT: Dictionary[int,PackedScene] = {
 	SceneNames.ImpactFlash: IMPACT_FLASH
 }
 
-
 func _ready() -> void:
 	_playerLaserPool = LaserPool.new(10,PLAYER_LASER,self,"PlayerLaser_")
 	_TieLaserPool = LaserPool.new(10,TIE_LASER,self,"TieLaser_")
 	SignalHub.on_create_one_off.connect(on_create_one_off)
 	SignalHub.on_create_laser.connect(on_create_laser)
 	SignalHub.on_create_packed_scene.connect(on_create_packed_scene)
+	SignalHub.on_create_power_up.connect(on_create_power_up)
 	
 
 func on_create_laser(p_tr: Transform3D, laser_type: Spawner.LaserTypes ):
@@ -94,4 +97,7 @@ func _on_tie_timer_timeout() -> void:
 func _on_asteroid_timer_timeout() -> void:
 		spawn_enemies(ASTEROID, 2.5, x_range, y_range, Vector2i(1,3), asteroid_timer) 
 		pass
-
+		
+func on_create_power_up(p_pos: Vector3) -> void:
+	var npu: PowerUP = POWER_UP.instantiate()
+	call_deferred("add_with_position", npu, p_pos)

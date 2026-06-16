@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ck1064ftj5kj3"]
+
+[ext_resource type="Shader" uid="uid://cnys7po1b02r3" path="res://Scenes/PowerUp/PowerUpShader.tres" id="1_fmbk4"]
+[ext_resource type="Texture2D" uid="uid://bdik7808gwrlj" path="res://Assets/Particles/spark_05_altered.png" id="2_v6ivy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fmbk4")
+shader_parameter/Color = Color(0.37254903, 0.8862745, 0.03529412, 1)
+shader_parameter/Intensity = 7.585
+shader_parameter/PanningSpeed = 0.5
+shader_parameter/Texture = ExtResource("2_v6ivy")

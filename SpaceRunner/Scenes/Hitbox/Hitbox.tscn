@@ -4,7 +4,6 @@
 
 [node name="Hitbox" type="Area3D" unique_id=572742583]
 script = ExtResource("1_yigu8")
-explosion_scene = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=122729167]
 

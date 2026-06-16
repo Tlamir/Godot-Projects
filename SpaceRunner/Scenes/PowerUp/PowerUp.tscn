@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://drrf32dotichu"]
+
+[ext_resource type="Material" uid="uid://bfyrau1bpjf1t" path="res://Scenes/PowerUp/PowerUpShieldMateria.tres" id="1_3hf71"]
+[ext_resource type="Script" uid="uid://dh8gwngaf41pi" path="res://Scenes/PowerUp/PowerUp.gd" id="1_v5ap0"]
+[ext_resource type="AudioStream" uid="uid://b8l3hxwciuqy" path="res://Assets/Audio/Effects/Powerup2.mp3" id="2_v5ap0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3hf71"]
+height = 1.5089111
+radius = 2.4628906
+
+[sub_resource type="QuadMesh" id="QuadMesh_rtpde"]
+size = Vector2(4, 4)
+
+[node name="PowerUp" type="Area3D" unique_id=1574395722]
+collision_layer = 32
+collision_mask = 72
+script = ExtResource("1_v5ap0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2104456863]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 5.498607e-09, -0.12579346)
+shape = SubResource("CylinderShape3D_3hf71")
+
+[node name="PowerUpMesh" type="MeshInstance3D" parent="." unique_id=1848732387]
+material_override = ExtResource("1_3hf71")
+mesh = SubResource("QuadMesh_rtpde")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="." unique_id=1901557012]
+stream = ExtResource("2_v5ap0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -942,5 +942,6 @@ collision_layer = 2
 shape_resource = SubResource("BoxShape3D_ul70j")
 explosion_scene = ExtResource("13_kbofb")
 shatter_scene = SubResource("PackedScene_nibfq")
+create_power_up = true
 
 [connection signal="died" from="Hitbox" to="." method="_on_hitbox_died"]

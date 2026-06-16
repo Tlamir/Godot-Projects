@@ -9,6 +9,8 @@ signal  died
 @export var start_health: int = 100
 @export var explosion_scene: PackedScene 
 @export var shatter_scene: PackedScene
+@export var create_power_up: bool = false
+@export var power_up_chance: float = 0.8
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
@@ -39,6 +41,8 @@ func blow_up():
 		SignalHub.emit_create_packed_scene(global_transform,explosion_scene)
 	if shatter_scene:
 		SignalHub.emit_create_packed_scene(global_transform,shatter_scene)
+	if create_power_up and randf() < power_up_chance:
+		SignalHub.emit_create_power_up(global_position)
 
 func take_damage(v: int):
 	if _dead: return
