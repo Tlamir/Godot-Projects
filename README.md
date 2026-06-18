@@ -1,5 +1,11 @@
 ## Godot Projects
 
+### 3D Space Shooter
+
+> Click image to watch demo on YouTube
+
+[![3D Space Shooter](https://img.youtube.com/vi/-gPAVFj0IJk/maxresdefault.jpg)](https://youtu.be/-gPAVFj0IJk)
+
 ### 3D Platformer Demo
 
 > Click image to watch demo on YouTube
